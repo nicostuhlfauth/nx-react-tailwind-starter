@@ -1,10 +1,15 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import tw from 'twin.macro';
 
 import { ReactComponent as Logo } from './logo.svg';
 import star from './star.svg';
 import Button from '../../../../libs/ui-components/src/lib/button/button';
+
+const Heading = tw.h1`text-blue-500 text-2xl p-2`;
+const BigHeading = tw(Heading)`text-4xl`;
+const Container = tw.div`max-w-4xl mx-auto p-5 mt-5`;
 
 const StyledApp = styled.div`
   font-family: sans-serif;
@@ -150,6 +155,20 @@ export function App() {
         <div className="flex justify-center my-6">
           <Button value="Foobar" />
         </div>
+
+        {/* First way of using tw.macro */}
+        <div tw="max-w-4xl mx-auto p-5 mt-5">
+          <h1 tw="text-blue-500 text-4xl">
+            Hello from tw.macro. This is a first way of using tw.macro
+          </h1>
+        </div>
+        {/* Second way of using tw.macro */}
+        <Container>
+          <BigHeading>
+            Once again hello from tw.macro. This is a second way of using
+            tw.macro
+          </BigHeading>
+        </Container>
         <p>Now it's time to create your own components.</p>
         <p>
           I already generated a react app for you (that's what you are serving
